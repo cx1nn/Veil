@@ -1,12 +1,13 @@
 const form = document.getElementById('form');
 const input = document.getElementById('input');
-// stuff gets confusing with those words
 
+// stuff gets confusing with those words
 if (form && input) {
     form.addEventListener('submit', handleSubmit);
 }
 
-//the now.html part doesnt need to be there because the css issue isnt a problem anymore...
+
+
 async function handleSubmit(event) {
     event.preventDefault();
     const url = input.value.trim();
@@ -50,11 +51,6 @@ function openURL(url) {
         } else if (!url.startsWith('http://') && !url.startsWith('https://')) {
             url = `http://${url}`;
         }
-        navigateAndRedirect(url, '/go.html'); // considering changing it to /g or something like that
+        navigateAndRedirect(url, '/go.html');
     });
 }
-
-
-
-
-

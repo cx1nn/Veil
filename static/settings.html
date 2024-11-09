@@ -3,9 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
+    <title>Theme Settings</title>
+    <link id="theme-link" rel="stylesheet" href="light.css"> <!-- Default theme -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(rgba(0, 0, 30, 0.7), rgba(0, 0, 60, 0.9)), url(../background.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+      }
+
+      label {
+        font-size: 18px;
+        color: #ccc;
+        margin-bottom: 10px;
+      }
+
+      select {
+        padding: 12px;
+        font-size: 16px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: none;
+        background: rgba(255, 0, 0, 0.836);
+        color: rgb(2, 2, 2);
+        transition: background 0.3s ease;
+      }
+
+      select:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      button {
+        padding: 12px 25px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      a {
+        color: #61dafb;
+        text-decoration: none;
+        margin-top: 20px;
+        font-size: 18px;
+        transition: color 0.3s ease;
+      }
+
+      a:hover {
+        color: #fff;
+      }
+    </style>
 </head>
 <body>
-    
+
+    <h1>Theme Settings</h1>
+    <label for="theme-select">Select Theme:</label>
+    <select id="theme-select">
+        <option value="default">Default</option>
+        <option value="midnight">Midnight</option>
+        <option value="red">Red</option>
+    </select>
+    <button onclick="saveTheme()">Save Changes</button>
+
+    <a href="./index.html">Back to Main Page</a>
+
+    <script>
+        // Function to save selected theme to local storage
+        function saveTheme() {
+            var selectedTheme = document.getElementById("theme-select").value;
+            localStorage.setItem("selectedTheme", selectedTheme);
+            applyTheme(selectedTheme);
+        }
+    </script>
+
 </body>
 </html>

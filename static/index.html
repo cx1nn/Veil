@@ -12,7 +12,7 @@
     <meta name="description" content="Discover ways to bypass school proxies and access unblocked games with efficient unblockers.">
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="./styles/home.css">
     <!-- Hoo boy particlesjs --> 
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -50,10 +50,30 @@
         </form>
     </div>
     
+    <script>
+          function applyTheme(theme) {
+            var linkElement = document.querySelector("link[rel='stylesheet']");
+            if (theme === "default") {
+                linkElement.href = "./styles/home.css"; // Default CSS file
+            } else if (theme === "midnight") {
+                linkElement.href = "./styles/midnight.css"; // Normal CSS file
+            } else if (theme === "red") {
+                linkElement.href = "./styles/red.css"; // Light CSS file
+            }
+            // Add more conditions for additional themes as needed
+        }
 
-    <script src="index.js"></script>
+        // Apply theme before page load
+        window.onload = function() {
+            var savedTheme = localStorage.getItem("selectedTheme");
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            }
+        };
+    </script>
+    <script src="./js/index.js"></script>
     <script src="uv/uv.bundle.js"></script>
-    <script src="particles.js"></script>
+    <script src="./js/particles.js"></script>
     <script src="uv/uv.config.js"></script>
     <script src="register-sw.js"></script>
 </body>
