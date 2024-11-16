@@ -1,0 +1,99 @@
+* {
+    overflow: hidden;
+  }
+  
+  /* General resets */
+  
+  /* Body and background settings */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background: linear-gradient(to bottom right, #FDC5F5, #F7AEF8, #B388EB, #8093F1, #72DDF7); /* Cotton Candy Gradient */
+    color: #333; /* Darker text for readability */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    min-height: 100vh; /* Ensures the body takes up at least full height */
+    padding-bottom: 50px; /* Adds extra padding at the bottom for scroll */
+  }
+  
+  /* Container for buttons */
+  .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-top: 10%;
+    z-index: 10;
+    margin-bottom: 20px; /* Space at the bottom for easier scroll */
+  }
+  
+  /* Button styling */
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    color: white; /* Button text color */
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 182, 249, 0.8), 0 0 30px rgba(114, 221, 247, 0.4); /* Cotton Candy glow */
+  }
+  
+  /* Image styling */
+  img {
+    height: 170px;
+    width: 170px;
+    border-radius: 10px;
+    transition: filter 0.3s ease;
+  }
+  
+  /* Hover effect for images */
+  button:hover img {
+    filter: brightness(1.1);
+  }
+  
+  /* Background video settings */
+  #video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  /* Glow effects for buttons */
+  button:hover {
+    box-shadow: 0 0 15px rgba(255, 182, 249, 0.8), 0 0 30px rgba(114, 221, 247, 0.4); /* Cotton Candy Glow */
+  }
+  
+  /* Allowing scroll */
+  html, body {
+    overflow-x: hidden; /* Prevents horizontal overflow */
+    overflow-y: auto; /* Keeps vertical scroll functionality if needed */
+  }
+  
+  /* Optional: smooth scrolling effect */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: -1;
+    overflow: visible; /* Prevents any particles from overflowing outside the container */
+  }
+  

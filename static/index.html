@@ -22,7 +22,7 @@
     <nav>
         <ul class="nav-links">
           <li><a href="#games">Games</a></li>
-          <li><a href="#apps">Apps</a></li>
+          <li><a href="./apps.html">Apps</a></li>
           <li><a href="settings.html">Settings</a></li>
         </ul>
 </nav>      
@@ -51,19 +51,29 @@
     </div>
     
     <script>
-          function applyTheme(theme) {
+     function applyTheme(theme) {
+    // Fetch the themes JSON file
+    fetch('./themes.json')
+        .then(response => response.json())  // Parse JSON response
+        .then(data => {
+            // Get the link element for the stylesheet
             var linkElement = document.querySelector("link[rel='stylesheet']");
-            if (theme === "default") {
-                linkElement.href = "./styles/home.css"; // Default CSS file
-            } else if (theme === "midnight") {
-                linkElement.href = "./styles/midnight.css"; // Normal CSS file
-            } else if (theme === "red") {
-                linkElement.href = "./styles/red.css"; // Light CSS file
-            }
-            // Add more conditions for additional themes as needed
-        }
 
-        // Apply theme before page load
+            // Check if the theme exists in the JSON data and apply it
+            if (data[theme]) {
+                linkElement.href = data[theme]; // Apply the correct CSS file from the JSON
+            } else {
+                console.log("Theme not found, applying default.");
+                linkElement.href = data["default"]; // Apply default theme if not found
+            }
+        })
+        .catch(error => {
+            console.error("Error loading themes.json:", error);
+        });
+}
+            // Add more conditions for additional themes as needed
+        
+
         window.onload = function() {
             var savedTheme = localStorage.getItem("selectedTheme");
             if (savedTheme) {

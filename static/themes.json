@@ -1,0 +1,10 @@
+{
+    "default": "./styles/home.css",
+    "midnight": "./styles/midnight.css",
+    "red": "./styles/red.css",
+    "cottoncandy": "./styles/cottoncandy.css",
+   "midhorizons": "./styles/midhorizons.css",
+   "green": "./styles/green.css"
+
+
+}

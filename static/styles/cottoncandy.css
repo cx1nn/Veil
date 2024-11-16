@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background: linear-gradient(to bottom right, #FDC5F5, #F7AEF8, #B388EB, #8093F1, #72DDF7); /* Cotton Candy Gradient */
+    color: #333; /* Darker text for readability */
+}
+
+#veil {
+    font-size: 60px;
+    position: absolute;
+    top: calc(50% - 130px);
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 
+        0 0 30px #F7AEF8,   /* Light Cotton Candy Glow */
+        0 0 60px #B388EB,   /* Lavender glow */
+        0 0 90px #8093F1;   /* Soft Blue Glow */
+    z-index: 2;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 1%;
+    z-index: 3;
+    position: relative;
+}
+
+input {
+    padding: 14px 18px;
+    font-size: 18px;
+    border: 3px solid #8093F1; /* Soft Blue border */
+    border-radius: 8px;
+    width: 800px;
+    outline: none;
+    background-color: #F7AEF8; /* Light Cotton Candy Pink background */
+    color: #333;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: #555; /* Softer placeholder color for readability */
+    opacity: 1;
+}
+
+/* Focus effect */
+input:focus {
+    border: 3px solid #72DDF7; /* Soft Teal border on focus */
+    box-shadow: 0 0 10px rgba(255, 182, 249, 0.8), 0 0 20px rgba(114, 221, 247, 0.4); /* Cotton Candy glow */
+}
+
+/* Hover effect */
+input:hover {
+    background-color: #F0F0F0; /* Light background on hover */
+}
+
+#rocket-icon, #cog-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 9999;
+    color: #F7AEF8; /* Soft Pink color for icons */
+    transition: transform 0.3s ease;
+}
+
+#rocket-icon:hover, #cog-icon:hover {
+    transform: scale(1.1);
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #8093F1; /* Soft Blue for links */
+    padding: 10px;
+    transition: 0.3s ease;
+}
+
+/* Hover effect for links */
+.nav-links a:hover {
+    background-color: #72DDF7; /* Soft Teal background on hover */
+    color: #FFF; /* White text on hover */
+    border-radius: 5px;
+}
+
+/* Cotton Candy Button Styling */
+button {
+    padding: 12px 20px;
+    background-color: #72DDF7; /* Soft Teal Button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #FDC5F5; /* Soft Pink on hover */
+    transform: scale(1.1);
+}
