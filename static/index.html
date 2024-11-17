@@ -51,36 +51,63 @@
     </div>
     
     <script>
-     function applyTheme(theme) {
-    // Fetch the themes JSON file
-    fetch('./themes.json')
-        .then(response => response.json())  // Parse JSON response
-        .then(data => {
-            // Get the link element for the stylesheet
-            var linkElement = document.querySelector("link[rel='stylesheet']");
-
-            // Check if the theme exists in the JSON data and apply it
-            if (data[theme]) {
-                linkElement.href = data[theme]; // Apply the correct CSS file from the JSON
-            } else {
-                console.log("Theme not found, applying default.");
-                linkElement.href = data["default"]; // Apply default theme if not found
+        function applySettings() {
+            // Retrieve settings from localStorage
+            const savedTitle = localStorage.getItem("cloakTitle");
+            const savedFavicon = localStorage.getItem("cloakFavicon");
+            const selectedTheme = localStorage.getItem("selectedTheme");
+    
+            // Apply the saved title
+            if (savedTitle) {
+                document.title = savedTitle;
             }
-        })
-        .catch(error => {
-            console.error("Error loading themes.json:", error);
-        });
-}
-            // Add more conditions for additional themes as needed
-        
-
+    
+            // Apply the saved favicon
+            if (savedFavicon) {
+                let faviconLink = document.querySelector("link[rel='shortcut icon']");
+                if (!faviconLink) {
+                    // Create favicon link if not present
+                    faviconLink = document.createElement("link");
+                    faviconLink.rel = "shortcut icon";
+                    document.head.appendChild(faviconLink);
+                }
+                faviconLink.href = savedFavicon;
+            }
+        }
+    
+        function applyTheme(theme) {
+            // Fetch the themes JSON file
+            fetch('./themes.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Get the link element for the stylesheet
+                    var linkElement = document.querySelector("link[rel='stylesheet']");
+    
+                    // Check if the theme exists in the JSON data and apply it
+                    if (data[theme]) {
+                        linkElement.href = data[theme]; // Apply the correct CSS file from the JSON
+                    } else {
+                        console.log("Theme not found, applying default.");
+                        linkElement.href = data["default"]; // Apply default theme if not found
+                    }
+                })
+                .catch(error => {
+                    console.error("Error loading themes.json:", error);
+                });
+        }
+    
         window.onload = function() {
-            var savedTheme = localStorage.getItem("selectedTheme");
+            // Apply saved settings
+            applySettings();
+    
+            // Apply saved theme
+            const savedTheme = localStorage.getItem("selectedTheme");
             if (savedTheme) {
                 applyTheme(savedTheme);
             }
         };
     </script>
+    
     <script src="./js/index.js"></script>
     <script src="uv/uv.bundle.js"></script>
     <script src="./js/particles.js"></script>

@@ -1,4 +1,4 @@
-# Veil Guard
+# Veil 
 
 ## Overview
 
@@ -15,8 +15,8 @@ Veil Guard is a sleek and powerful web proxy designed to unblock your blocked we
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/veil-guard.git
-   cd veil-guard 
+   git clone https://github.com/cx1nn/veil.git
+   cd veil
    npm i 
    node index.js
    ```

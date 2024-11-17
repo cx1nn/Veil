@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theme Settings</title>
-    <link id="theme-link" rel="stylesheet" href="light.css"> <!-- Default theme -->
+    <title>Settings</title>
+    <link rel="shortcut icon" href="./icons/veil_nobg.png" type="image/x-icon">
     <style>
       * {
         margin: 0;
@@ -45,18 +45,18 @@
         margin-bottom: 10px;
       }
 
-      select {
+      input, select {
         padding: 12px;
         font-size: 16px;
         margin: 10px 0;
         border-radius: 8px;
         border: none;
-        background: rgba(255, 0, 0, 0.836);
+        background: rgba(255, 255, 255, 0.836);
         color: rgb(2, 2, 2);
         transition: background 0.3s ease;
       }
 
-      select:hover {
+      input:hover, select:hover {
         background: rgba(255, 255, 255, 0.4);
       }
 
@@ -90,28 +90,51 @@
 </head>
 <body>
 
-    <h1>Theme Settings</h1>
+    <h1>Theme & Cloak Settings</h1>
     <label for="theme-select">Select Theme:</label>
     <select id="theme-select">
         <option value="default">Default</option>
         <option value="midnight">Midnight</option>
-        <option value="red">Cinnamon </option>
+        <option value="red">Cinnamon</option>
         <option value="cottoncandy">Cotton Candy</option>
         <option value="midhorizons">Midnight Horizons</option>
         <option value="green">Mint Mirage</option>
-
-
     </select>
-    <button onclick="saveTheme()">Save Changes</button>
+
+    <label for="cloak-title">Set Cloak Title:</label>
+    <input id="cloak-title" type="text" placeholder="Enter title for index.html">
+
+    <label for="cloak-favicon">Set Cloak Favicon URL:</label>
+    <input id="cloak-favicon" type="url" placeholder="Enter favicon URL for index.html">
+
+    <button onclick="saveSettings()">Save Changes</button>
 
     <a href="./index.html">Back to Main Page</a>
 
     <script>
-        // Function to save selected theme to local storage
-        function saveTheme() {
+        // Function to save selected settings to local storage
+        function saveSettings() {
             var selectedTheme = document.getElementById("theme-select").value;
+            var cloakTitle = document.getElementById("cloak-title").value;
+            var cloakFavicon = document.getElementById("cloak-favicon").value;
+
             localStorage.setItem("selectedTheme", selectedTheme);
-            applyTheme(selectedTheme);
+            localStorage.setItem("cloakTitle", cloakTitle);
+            localStorage.setItem("cloakFavicon", cloakFavicon);
+            console.log("cloak:", cloakTitle, cloakFavicon, "theme:", selectedTheme,  "Will be applied to main page.")
+        }
+
+        // Apply cloak settings to index.html
+        window.onload = function () {
+            const savedTitle = localStorage.getItem("cloakTitle");
+            const savedFavicon = localStorage.getItem("cloakFavicon");
+
+            if (savedTitle || savedFavicon) {
+                var link = document.createElement('a');
+                link.href = './index.html';
+                link.target = '_blank';
+                link.click();
+            }
         }
     </script>
 
