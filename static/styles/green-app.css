@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide scrollbars */
+}
+
+body {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background: linear-gradient(to bottom right, #0B3D0B, #156B3E, #1C9E50, #20C977, #2EFF9E); /* Vibrant Green Gradient */
+
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body {
+    overflow-y: scroll; /* Ensures vertical scrolling */
+}
+
+/* Hides scrollbars but keeps scrolling functionality */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Container for buttons */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 10% 20px 20px; /* Adds padding on the top and sides */
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+
+/* Button styling */
+button {
+    background-color: transparent;
+    border: none; /* Removed border */
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    color: white; /* Button text color */
+    padding: 5px 10px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(100, 100, 100, 0.3); /* White glow */
+}
+
+button:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3); /* Soft white glow */
+}
+
+img {
+    height: 170px;
+    width: 170px;
+    border-radius: 10px;
+    transition: filter 0.3s ease;
+}
+
+button:hover img {
+    filter: brightness(1.1);
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}

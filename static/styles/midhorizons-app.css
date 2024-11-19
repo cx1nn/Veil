@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide scrollbars */
+}
+
+body {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background: linear-gradient(
+        rgba(0, 100, 102, 0.8), /* Caribbean Current for a cool, deep turquoise */
+        rgba(6, 90, 96, 0.9), /* Midnight green for a darker, subtler green */
+        rgba(11, 82, 91, 0.8), /* Midnight green 2 for a smooth blend */
+        rgba(20, 69, 82, 0.9), /* Midnight green 3 for more depth */
+        rgba(27, 58, 75, 0.8), /* Charcoal for a deep, dark base */
+        rgba(33, 47, 69, 0.9), /* Prussian blue for a rich touch of blue */
+        rgba(39, 38, 64, 0.85), /* Space cadet for a subtle dark purple */
+        rgba(49, 34, 68, 0.8), /* Dark purple for richness */
+        rgba(62, 31, 71, 0.75), /* Dark purple 2 for more depth */
+        rgba(77, 25, 77, 0.8)  /* Palatinate for a pop of vibrant color */
+    );
+
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body {
+    overflow-y: scroll; /* Ensures vertical scrolling */
+}
+
+/* Hides scrollbars but keeps scrolling functionality */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Container for buttons */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 10% 20px 20px; /* Adds padding on the top and sides */
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+
+/* Button styling */
+button {
+    background-color: transparent;
+    border: none; /* Removed border */
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    color: white; /* Button text color */
+    padding: 5px 10px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(100, 100, 100, 0.3); /* White glow */
+}
+
+button:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3); /* Soft white glow */
+}
+
+img {
+    height: 170px;
+    width: 170px;
+    border-radius: 10px;
+    transition: filter 0.3s ease;
+}
+
+button:hover img {
+    filter: brightness(1.1);
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
